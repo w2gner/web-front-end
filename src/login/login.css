@@ -1,0 +1,42 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+}
+
+.box {
+    background-color: #072c52;
+    margin-right: 35%;
+    margin-left: 35%;
+    margin-top: 18%;
+    margin-bottom: 18%;
+    overflow: hidden
+}
+
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1f2330;
+        color: #f0ece2;
+    }
+
+    h1 {
+        color: #7579e7;
+    }
+
+    h3 {
+        color: #69779b;
+    }
+
+    img {
+        filter: brightness(0.9);
+    }
+}

@@ -1,6 +1,7 @@
 {
   "type": "module",
   "dependencies": {
+    "bulma": "^0.9.3",
     "express": "^4.17.3",
     "node-fetch": "^3.2.3"
   }
