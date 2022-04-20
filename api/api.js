@@ -97,6 +97,36 @@ app.get('/images', function (req, res, next) {
     })
 });
 
+app.post('/login', function (req, res, next) {
+    let root = "root";
+    let rootPassword = "unesc@1234";
+    let email = req.query.email;
+    let password = req.query.password;
+
+    if (!email || !password) {
+        if (!email && !password) {
+            res.status(404).json({
+                email: "Informe o email",
+                password: "informe a senha"
+            })
+        } else if (!email) {
+            res.status(404).json({
+                email: "Informe o email"
+            })
+        } else {
+            res.status(404).json({
+                password: "Informe a senha"
+            })
+        }
+    }
+    else if (req.query.email == root & req.query.password == rootPassword) {
+        res.status(200).json({ sucesso: "Usuário logado" });
+    }
+    else {
+        res.status(404).json({ erro: "Usuário não encontrado" });
+    }
+});
+
 app.listen(3000, function () {
-    console.log('Started listening on port 3000');
+    console.log('Server started on port 3000');
 });
