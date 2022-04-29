@@ -1,0 +1,251 @@
+p {
+    color: rgb(255, 255, 255);
+    margin: 0px;
+}
+
+body {
+    zoom: 150%;
+    display: flex;
+    justify-content: center;
+    background-color: #6cc1c7;
+}
+
+.container {
+    position: absolute;
+    width: 250px;
+    height: 320px;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+
+}
+
+
+#card {
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all .5s;
+}
+
+#card2 {
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all .5s;
+    float: left;
+}
+
+#card3 {
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all .5s;
+    float: left;
+}
+
+#card4 {
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all .5s;
+    float: left;
+}
+
+#card5 {
+    margin-top: 2%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all .5s;
+    float: left;
+}
+
+/* .face{
+    width: 180px;
+    height: 280px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    border-radius: 10px;
+     } */
+
+.face {
+    width: 180px;
+    height: 280px;
+    display: grid;
+    align-content: space-evenly;
+    justify-items: start;
+    border: 1px solid white;
+}
+
+.face p {
+    margin-left: 5px;
+}
+
+.back {
+    width: 180px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+    /* position: absolute; */
+    border-radius: 10px;
+}
+
+
+#front {
+    backface-visibility: hidden;
+    background-color: #363636;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#front2 {
+
+    backface-visibility: hidden;
+    background-color: #363636;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#front3 {
+
+    backface-visibility: hidden;
+    background-color: #363636;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#front4 {
+
+    backface-visibility: hidden;
+    background-color: #363636;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#front5 {
+
+    backface-visibility: hidden;
+    background-color: #363636;
+    text-align: center;
+    border-radius: 10px;
+}
+
+#back {
+    border: #23a4bb;
+    border-radius: 5px;
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: url("../../images/monument.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+#back2 {
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: url("../../images/monument.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+#back3 {
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: url("../../images/monument.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+#back4 {
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: url("../../images/monument.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+#back5 {
+    position: absolute;
+    backface-visibility: hidden;
+    background-image: url("../../images/monument.png");
+    background-size: cover;
+    transform: rotateY(180deg);
+}
+
+.flip {
+    transform: rotateY(180deg);
+}
+
+.flip2 {
+    transform: rotateY(180deg);
+}
+
+.flip3 {
+    transform: rotateY(180deg);
+}
+
+.flip4 {
+    transform: rotateY(180deg);
+}
+
+.flip5 {
+    transform: rotateY(180deg);
+}
+
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #1f2330;
+        color: #f0ece2;
+    }
+
+    h1 {
+        color: #7579e7;
+    }
+
+    h3 {
+        color: #69779b;
+    }
+
+    img {
+        filter: brightness(0.9);
+    }
+}
+
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: #cac4ce;
+    }
+}

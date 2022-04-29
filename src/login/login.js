@@ -3,16 +3,13 @@ function login() {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
 
-    let url = "127.0.0.1:3000/login?email=" + email + "&password=" + password
-
-    var request = fetch(url, {
-        method: "POST"
+    var data = fetch("http://127.0.0.1:3000/heroes?name=Batman", {
+        mode: 'no-cors'
     })
-
-    //get request to get the token
-    var data = request.then(function (response) {
-        return response.json()
-    })
-
-    console.log(data)
+        .then(response => {
+            return response
+        }).then(data => {
+            console.log(data)
+            return data.body
+        });
 }
