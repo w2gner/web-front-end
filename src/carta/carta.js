@@ -1,34 +1,52 @@
-let click = 0;
+var viracartas = [];
+var jogador1 = 0;
+var jogador2 = 0;
+const card1 = document.querySelector("#card")
+card1.addEventListener("click", (e) => {
+    if (viracartas.length < 2) {
+        card1.classList.toggle("flip")
+        viracartas.push("card1")
+        card1.addEventListener("click", getData(), true)
+    }
 
-const card = document.querySelector("#card")
-card.addEventListener("click", (e) => {
-    console.log("click")
-    card.classList.toggle("flip")
-    click++;
 })
-const card1 = document.querySelector("#card2")
-card1.addEventListener("click", (e1) => {
-    console.log("click")
-    card1.classList.toggle("flip2")
-    click++;
+const card2 = document.querySelector("#card2")
+card2.addEventListener("click", (e1) => {
+    if (viracartas.length < 2) {
+        card2.classList.toggle("flip")
+        viracartas.push("card2")
+        card2.addEventListener("click", getData(), true)
+    }
+
 })
+
 const card3 = document.querySelector("#card3")
 card3.addEventListener("click", (e2) => {
-    console.log("click")
-    card3.classList.toggle("flip3")
-    click++;
+    if (viracartas.length < 2) {
+        card3.classList.toggle("flip")
+        card3.addEventListener("click", getData(), true)
+
+    }
 })
+
 const card4 = document.querySelector("#card4")
 card4.addEventListener("click", (e3) => {
-    console.log("click")
-    card4.classList.toggle("flip4")
-    click++;
+    if (viracartas.length < 2) {
+        card4.classList.toggle("flip")
+        viracartas.push("card4")
+        card4.addEventListener("click", getData(), true)
+
+    }
 })
+
 const card5 = document.querySelector("#card5")
 card5.addEventListener("click", (e4) => {
-    console.log("click")
-    card5.classList.toggle("flip5")
-    click++;
+    if (viracartas.length < 2) {
+        card5.classList.toggle("flip")
+        viracartas.push("card5")
+        card5.addEventListener("click", getData(), true)
+
+    }
 })
 
 function fazGet(url) {
@@ -93,6 +111,46 @@ function criarcombate(herois) {
     return combat;
 }
 
+function getData() {
+    var meuHeroi = [];
+    var cartas = [];
+
+    for (var index = 1; index < 6; index++) {
+        meuHeroi = new Object();
+        meuHeroi.nome = document.getElementById("nome" + index).lastChild.textContent
+        meuHeroi.inteligencia = document.getElementById("int" + index).lastChild.textContent
+        meuHeroi.velocidade = document.getElementById("speed" + index).lastChild.textContent
+        meuHeroi.durabilidade = document.getElementById("dura" + index).lastChild.textContent
+        meuHeroi.poder = document.getElementById("power" + index).lastChild.textContent
+        meuHeroi.combate = document.getElementById("combat" + index).lastChild.textContent
+        cartas.push(meuHeroi);
+    }
+    if (viracartas.length === 2) {
+        var vencedor1 = [];
+        var vencedor2 = [];
+        for (let j = 0; j < 6; j++) {
+
+            if ("card" + j === viracartas[0]) {
+                jogador1 = parseInt(cartas[j - 1].inteligencia) + parseInt(cartas[j - 1].velocidade) + parseInt(cartas[j - 1].durabilidade) + parseInt(cartas[j - 1].poder) + parseInt(cartas[j - 1].combate);
+
+                vencedor1 = cartas[j - 1].nome;
+            }
+            if ("card" + j === viracartas[1]) {
+                jogador2 = parseInt(cartas[j - 1].inteligencia) + parseInt(cartas[j - 1].velocidade) + parseInt(cartas[j - 1].durabilidade) + parseInt(cartas[j - 1].poder) + parseInt(cartas[j - 1].combate);
+
+                vencedor2 = cartas[j - 1].nome;
+            }
+
+        }
+    }
+    if (jogador1 > jogador2) {
+        alert("jogador 1 Venceu " + ' com a carta ' + vencedor1)
+    }
+    if (jogador2 > jogador1) {
+        alert("jogador 2 Venceu " + 'com a carta ' + vencedor2)
+    }
+}
+
 function main() {
 
     let data = fazGet("https://akabab.github.io/superhero-api/api/all.json")
@@ -104,7 +162,6 @@ function main() {
     let durabilidade = [];
     let poder = [];
     let combate = [];
-
     // var heroi = [
     //     nome,
     //     inteligencia,
@@ -121,7 +178,6 @@ function main() {
     for (let i = 1; i < 6; i++) {
         criaHeroi(aleatorio(), i);
     }
-
     function criaHeroi(n, count) {
         var encontrado = false;
         heroi.forEach(element => {
@@ -152,6 +208,6 @@ function main() {
             criaHeroi(aleatorio(), count);
         }
     }
+    getData()
 }
-
 main()

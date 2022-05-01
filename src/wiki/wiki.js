@@ -7,7 +7,32 @@ function colapsable(div) {
     }
 }
 
-// function darkMode() {
-//     var element = document.body;
-//     element.classList.toggle("dark-mode");
-// }
+function getWiki() {
+    let request = fetch("https://akabab.github.io/superhero-api/api/all.json")
+    let heroName = req.query.name;
+    let found = false;
+
+    request.then(function (response) {
+        if (heroName) {
+            return response.json().then(function (data) {
+                let hero = data.find(function (hero) {
+                    if (hero.name === heroName && !found) {
+                        res.json(hero);
+                        found = true;
+                        request.finally(console.log("Herói encontrado"));
+                    }
+                });
+                if (hero == undefined && !found) {
+                    res.status(404).json({
+                        error: "Herói não encontrado"
+                    });
+                }
+            });
+        }
+        else {
+            return response.json().then(function (data) {
+                res.json(data);
+            });
+        }
+    })
+}

@@ -10,15 +10,109 @@
     <title>Wiki filmes marvel</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="wiki.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <script src="wiki.js"></script>
 </head>
 
 <body>
-    <section class="intro">
-        <h1>Lista de filmes da marvel</h1>
-        <h4>Esta página foi criada para apresentar os filmes do universo marvel em ordem cronológica. Clique nos filmes
-            abaixo para expandir:</h4>
-    </section>
+    <header>
+        <section class="barra-navegacao">
+            <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        Wiki de filmes
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" onclick="window.location.href = 'wiki.html'">
+                            Home
+                        </a>
+
+                        <a class=" navbar-item" onclick="window.location.href = 'personagens/criação_personagem.html'">
+                            Criar personagem
+                        </a>
+
+                        <a class=" navbar-item" onclick="window.location.href = 'carta/carta.html'">
+                            Jogo
+                        </a>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                Mais
+                            </a>
+
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item">
+                                    x
+                                </a>
+                                <a class="navbar-item">
+                                    y
+                                </a>
+                                <a class="navbar-item">
+                                    z
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item">
+                                    outra coisa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-primary" onclick="window.location.href = 'login/login.html'">
+                                    Log in
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+        <section class="intro">
+            <h1>Esta página foi criada para apresentar os filmes do universo marvel em ordem cronológica. Clique nos
+                filmes
+                abaixo para expandir:</h1>
+        </section>
+    </header>
+
+    <div id="content">
+        teste
+    </div>
+
+    <script>
+        let request = fetch("https://akabab.github.io/superhero-api/api/all.json")
+        let elemento_pai = window.document.body;
+
+
+        request.then(function (response) {
+            return response.json().then(function (data) {
+                let hero = data.find(function (hero) {
+                    // Criar elemento
+                    var titulo = document.createElement('h1');
+
+                    // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
+                    elemento_pai.appendChild(titulo);
+                    // const element = document.createElement('h1').innerText = hero;
+                    // elemento_pai.appendChild(element);
+                    console.log(hero);
+                });
+            });
+
+        })
+    </script>
+
+
     <section class="listaFilmes">
         <button onclick="colapsable(this)" type="button" class="collapsible">Homem de Ferro (2008)</button>
         <div class="content">
@@ -270,7 +364,7 @@
         </div>
 
         <br></br>
-    </section>
+    </section> -->
 </body>
 
 </html>

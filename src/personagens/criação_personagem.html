@@ -4,56 +4,128 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Criação de personagem</title>
     <script src="criação_personagem.js"></script>
     <link rel="stylesheet" href="criação_personagem.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <meta name="color-scheme" content="dark light">
 
 </head>
 
 <body>
-    <section class="cadastro">
-        <div>
-            <label>Nome do personagem</label>
-            <input></input>
+    <header>
+        <section class="barra-navegacao">
+            <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+                <div class="navbar-brand">
+                    <a class="navbar-item">
+                        Wiki de filmes
+                    </a>
+
+                    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                        data-target="navbarBasicExample">
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                        <span aria-hidden="true"></span>
+                    </a>
+                </div>
+
+                <div id="navbarBasicExample" class="navbar-menu">
+                    <div class="navbar-start">
+                        <a class="navbar-item" onclick="history.back()">
+                            Home
+                        </a>
+
+                        <a class=" navbar-item" onclick="window.location.href = 'criação_personagem.html'">
+                            Criar personagem
+                        </a>
+
+                        <a class=" navbar-item" onclick="window.location.href = '../carta/carta.html'">
+                            Jogo
+                        </a>
+
+                        <div class="navbar-item has-dropdown is-hoverable">
+                            <a class="navbar-link">
+                                Mais
+                            </a>
+
+                            <div class="navbar-dropdown">
+                                <a class="navbar-item">
+                                    x
+                                </a>
+                                <a class="navbar-item">
+                                    y
+                                </a>
+                                <a class="navbar-item">
+                                    z
+                                </a>
+                                <hr class="navbar-divider">
+                                <a class="navbar-item">
+                                    outra coisa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-end">
+                        <div class="navbar-item">
+                            <div class="buttons">
+                                <a class="button is-primary" onclick="window.location.href = '../login/login.html'">
+                                    Log in
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </section>
+    </header>
+
+    <section class="container">
+        <div class="field">
+            <label class="label">Nome do Personagem</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Iron Man">
+            </div>
+            <label class="label">Cidade Natal</label>
+            <div class="control">
+                <input class="input" type="text" placeholder="Criciúma">
+            </div>
+            <br>
+            <label>Classe</label> - <label>Raça</label> - <label>Armas/Poderes</label>
+            <div class="control block">
+                <div class="select">
+                    <select>
+                        <option>Guerreiro</option>
+                        <option>Arqueiro</option>
+                        <option>Mago</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <select>
+                        <option>Humano</option>
+                        <option>Deus</option>
+                        <option>Planeta</option>
+                    </select>
+                </div>
+
+                <div class="select">
+                    <select>
+                        <option>Martelo</option>
+                        <option>Armadura</option>
+                        <option>Magia</option>
+                    </select>
+                </div>
+
+                <label class="checkbox">
+                    <input type="checkbox">
+                    Realizar tutorial?
+                </label>
+            </div>
         </div>
-        <div>
-            <label>Cidade natal</label>
-            <input></input>
-        </div>
-        <div>
-            <label>Classe</label>
-            <select name="classe" id="classe">
-                <option>Guerreiro</option>
-                <option>Arqueiro</option>
-                <option>Mago</option>
-            </select>
-        </div>
-        <div>
-            <label>Raça</label>
-            <select name="raca" id="raca">
-                <option>Humano</option>
-                <option>Deus</option>
-                <option>Planeta</option>
-            </select>
-        </div>
-        <div>
-            <label>Armas/Poderes</label>
-            <select name="arma" id="arma">
-                <option>Martelo</option>
-                <option>Armadura</option>
-                <option>Magia</option>
-            </select>
-        </div>
-        <div>
-            <label>Realizar tutorial?</label>
-            <input type="checkbox"></input>
-        </div>
-        <h1>Teste</h1>
-        <h2>Teste 2</h2>
-        <h3>Teste 3</h3>
+
     </section>
+
 </body>
 
 </html>
