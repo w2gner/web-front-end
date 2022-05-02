@@ -6,7 +6,6 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <title>Wiki filmes marvel</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="wiki.css">
@@ -53,17 +52,17 @@
 
                             <div class="navbar-dropdown">
                                 <a class="navbar-item">
-                                    x
+                                    opção 1
                                 </a>
                                 <a class="navbar-item">
-                                    y
+                                    opção 2
                                 </a>
                                 <a class="navbar-item">
-                                    z
+                                    opção 3
                                 </a>
                                 <hr class="navbar-divider">
                                 <a class="navbar-item">
-                                    outra coisa
+                                    outra opção
                                 </a>
                             </div>
                         </div>
@@ -90,7 +89,6 @@
     </header>
     <script>
         let request = fetch("https://akabab.github.io/superhero-api/api/all.json")
-        //let request2 = fetch("https://gateway.marvel.com/v1/public/characters")
         let elemento_pai = window.document.body;
 
         request.then(function (response) {
@@ -101,12 +99,13 @@
                         var heroi = document.createElement('button');
                         var texto = document.createElement('p');
                         var img = document.createElement('img');
+
                         heroi.textContent = hero.name
                         heroi.className = "collapsible"
                         heroi.type = "button"
                         heroi.onclick = function (event) { colapsable(this) }
                         heroi.appendChild(nome)
-                        texto.textContent = "Wagner Ghedin"
+                        texto.textContent = hero
                         texto.className = "content"
                         img.src = hero.images.md
 
@@ -119,7 +118,7 @@
         })
     </script>
 
-    <section class="listaFilmes" style="color: rgb(151, 157, 175);">
+    <section class="listaFilmes">
         <button onclick="colapsable(this)" type="button" class="collapsible">Homem de Ferro (2008)</button>
         <div class="content">
             <p>
@@ -312,6 +311,8 @@
 
         <br></br>
     </section>
+    <p>Abaixo lista de heróis</p>
+    <br>
 </body>
 
 </html>
