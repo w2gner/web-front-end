@@ -80,41 +80,46 @@
                 </div>
             </nav>
         </section>
-        <section class="intro">
-            <h1>Esta página foi criada para apresentar os filmes do universo marvel em ordem cronológica. Clique nos
+        <article class="message is-warning">
+            <div class="message-body">
+                Esta página foi criada para apresentar os filmes do universo marvel. Clique nos
                 filmes
-                abaixo para expandir:</h1>
-        </section>
+                abaixo para expandir:
+            </div>
+        </article>
     </header>
-
-    <div id="content">
-        teste
-    </div>
-
     <script>
         let request = fetch("https://akabab.github.io/superhero-api/api/all.json")
+        //let request2 = fetch("https://gateway.marvel.com/v1/public/characters")
         let elemento_pai = window.document.body;
-
 
         request.then(function (response) {
             return response.json().then(function (data) {
                 let hero = data.find(function (hero) {
-                    // Criar elemento
-                    var titulo = document.createElement('h1');
+                    if (hero.biography.publisher == "Marvel Comics") {
+                        var nome = document.createElement('h1');
+                        var heroi = document.createElement('button');
+                        var texto = document.createElement('p');
+                        var img = document.createElement('img');
+                        heroi.textContent = hero.name
+                        heroi.className = "collapsible"
+                        heroi.type = "button"
+                        heroi.onclick = function (event) { colapsable(this) }
+                        heroi.appendChild(nome)
+                        texto.textContent = "Wagner Ghedin"
+                        texto.className = "content"
+                        img.src = hero.images.md
 
-                    // Inserir (anexar) o elemento filho (titulo) ao elemento pai (body)
-                    elemento_pai.appendChild(titulo);
-                    // const element = document.createElement('h1').innerText = hero;
-                    // elemento_pai.appendChild(element);
-                    console.log(hero);
+                        texto.appendChild(img)
+                        heroi.appendChild(texto)
+                        elemento_pai.appendChild(heroi);
+                    }
                 });
             });
-
         })
     </script>
 
-
-    <section class="listaFilmes">
+    <section class="listaFilmes" style="color: rgb(151, 157, 175);">
         <button onclick="colapsable(this)" type="button" class="collapsible">Homem de Ferro (2008)</button>
         <div class="content">
             <p>
@@ -148,7 +153,7 @@
                 visuais. Duas sequências, Homem
                 de Ferro 2 e Homem de Ferro 3, foram lançadas em 7 de maio de 2010 e 3 de maio de 2013, respectivamente.
             </p>
-            <img src="../images/iron_man_poster.jpg"
+            <img src="../../images/iron_man_poster.jpg"
                 style="float: left; margin-right: 15px; size-adjust: 25px; text-align: left">
         </div>
         <button onclick="colapsable(this)" type="button" class="collapsible">Homem de Ferro 2 (2010)</button>
@@ -240,7 +245,7 @@
                 lançados em 28 de setembro de 2010. O terceiro filme da trilogia, Homem de Ferro 3, foi lançado em 3 de
                 maio de 2013.2
             </p>
-            <img src="../images/inron_man_2_poster.jpg" style="size-adjust: 50px">
+            <img src="../../images/inron_man_2_poster.jpg" style="size-adjust: 50px">
         </div>
         <button onclick="colapsable(this)" type="button" class="collapsible">Thor (2011)</button>
         <div class="content">
@@ -280,7 +285,7 @@
                 as filmagens ocorreram na Califórnia
                 e Novo México de janeiro a maio de 2010. O filme foi convertido para 3D na pós-produção.
             </p>
-            <img src="../images/thor_Poster.jpg" style="size-adjust: 50px">
+            <img src="../../images/thor_Poster.jpg" style="size-adjust: 50px">
         </div>
         <button onclick="colapsable(this)" type="button" class="collapsible">Capitão América: O Primeiro Vingador
             (2011)</button>
@@ -318,7 +323,7 @@
                 falta de originalidade em seu
                 enredo.[8] Arrecadou mais de US$ 370 milhões mundialmente, contra um orçamento de US$ 140 milhões.[2]
             </p>
-            <img src="../images/captain_america_poster.jpg" style="size-adjust: 50px">
+            <img src="../../images/captain_america_poster.jpg" style="size-adjust: 50px">
         </div>
         <button onclick="colapsable(this)" type="button" class="collapsible">Os Vingadores (2012)</button>
         <div class="content">
@@ -361,11 +366,11 @@
                 Avengers: Age of Ultron (2015), Avengers:
                 Infinity War (2018) e Avengers: Endgame (2019).
             </p>
-            <img src="../images/the_Avengers_poster.jpg" style="size-adjust: 50px">
+            <img src="../../images/the_Avengers_poster.jpg" style="size-adjust: 50px">
         </div>
 
         <br></br>
-    </section> -->
+    </section>
 </body>
 
 </html>
